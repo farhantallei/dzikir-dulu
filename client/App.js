@@ -4,7 +4,7 @@ import { SafeAreaView, Text, View } from 'react-native';
 
 import useStyles from './styles.js';
 
-function Container() {
+export default function App() {
   const styles = useStyles();
 
   return (
@@ -12,11 +12,5 @@ function Container() {
       <Text style={{ textAlign: 'center', fontSize: 36, fontWeight: '500' }}>Bismillah</Text>
       <StatusBar style="auto" />
     </SafeAreaView>
-  );
-}
-
-export default function App() {
-  return (
-    <Container />
   );
 }

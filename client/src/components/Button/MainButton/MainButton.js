@@ -10,11 +10,11 @@ const MainButton = props => {
     const [press, setPress] = useState(false);
 
     const onPressIn = () => {
-        setPress(true)
+        setPress(true);
     };
 
     const onPressOut = () => {
-        setPress(false)
+        setPress(false);
     };
 
     return (

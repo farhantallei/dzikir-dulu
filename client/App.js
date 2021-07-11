@@ -1,20 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { SafeAreaView, Text, View, Alert } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-import MainButton from './src/components/Button/MainButton/MainButton.js';
-import useStyles from './styles.js';
+import Main from './src/routes/home.js';
+import Dzikr from './src/screens/modals/Dzikr/Dzikr.js';
+
+const RootStack = createStackNavigator();
 
 export default function App() {
-  const styles = useStyles();
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={{ height: '100%', flexDirection: 'column', justifyContent: 'center' }}>
-        <MainButton flex={0} label="Pagi" backgroundColor='#d68593' fontSize={48} length={8} radius={24} height={150} marginBottom={100} />
-        <MainButton flex={0} label="Petang" backgroundColor='#6c5ce7' fontSize={48} length={8} radius={24} height={150} />
-      </View>
-      <StatusBar style="auto" />
-    </SafeAreaView>
+    <NavigationContainer>
+      <RootStack.Navigator mode='modal' headerMode='none'>
+        <RootStack.Screen name='Main' component={Main} />
+        <RootStack.Screen name='Dzikr' component={Dzikr} options={{ cardStyle: { backgroundColor: 'white' }, gestureEnabled: false }} />
+      </RootStack.Navigator>
+    </NavigationContainer>
   );
 }

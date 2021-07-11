@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Text, TouchableWithoutFeedback, View, Alert } from 'react-native';
+import PropTypes from 'prop-types';
 import Animated from 'react-native-reanimated';
 
 import useStyles from './styles.js';
@@ -37,6 +38,20 @@ const MainButton = props => {
         </View>
     );
 }
+
+MainButton.propTypes = {
+    flex: PropTypes.number,
+    color: PropTypes.string,
+    backgroundColor: PropTypes.string,
+    marginTop: PropTypes.number,
+    marginBottom: PropTypes.number,
+    height: PropTypes.number,
+    length: PropTypes.number,
+    radius: PropTypes.number,
+    fontWeight: PropTypes.string,
+    fontSize: PropTypes.number,
+    textTransform: PropTypes.string,
+};
 
 MainButton.defaultProps = {
     flex: 1,

@@ -1,3 +1,4 @@
+import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -15,6 +16,7 @@ export default function App() {
         <RootStack.Screen name='Main' component={Main} />
         <RootStack.Screen name='Dzikr' component={Dzikr} options={{ cardStyle: { backgroundColor: 'white' }, gestureEnabled: false }} />
       </RootStack.Navigator>
+      <StatusBar style='auto' hidden={true} />
     </NavigationContainer>
   );
 }

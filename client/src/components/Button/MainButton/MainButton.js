@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Button, Text, TouchableWithoutFeedback, View, Alert } from 'react-native';
+import React, {  useState } from 'react';
+import { Text, TouchableWithoutFeedback, View } from 'react-native';
 import PropTypes from 'prop-types';
 import Animated from 'react-native-reanimated';
 
@@ -7,30 +7,23 @@ import useStyles from './styles.js';
 
 const MainButton = props => {
     const styles = useStyles(props);
-
-    const [label, setLabel] = useState(props.label);
-    const [alert, setAlert] = useState(props.alert);
-    const [backgroundColor, setBackgroundColor] = useState(props.backgroundColor);
-    const [height, setHeight] = useState(props.height);
-    const [length, setLength] = useState(props.length);
-
     const [press, setPress] = useState(false);
 
     const onPressIn = () => {
         setPress(true)
     };
 
-    const pressesOut = () => {
+    const onPressOut = () => {
         setPress(false)
     };
 
     return (
         <View style={styles.container}>
-            <TouchableWithoutFeedback onPress={props.onPress} onPressOut={pressesOut} onPressIn={onPressIn}>
+            <TouchableWithoutFeedback onPress={props.onPress} onPressOut={onPressOut} onPressIn={onPressIn}>
                 <View style={styles.button} >
                     <View style={ press ? { ...styles.height, ...styles.heightPress } : styles.height }>
                         <View style={ press ? { ...styles.inner, ...styles.innerPress } : styles.inner }>
-                            <Text style={styles.label}>{label}</Text>
+                            <Text style={styles.label}>{props.label}</Text>
                         </View>
                     </View>
                 </View>

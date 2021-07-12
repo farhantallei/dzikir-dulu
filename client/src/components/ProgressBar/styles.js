@@ -5,12 +5,14 @@ export default StyleSheet.create(props => ({
         flex: 1,
         flexDirection: props.direction,
         height: props.height,
-        borderRadius: props.borderRadius,
         backgroundColor: props.backgroundColor,
+        borderRadius: props.borderRadius,
     },
     progress: {
         flex: props.progress,
-        borderRadius: props.borderRadius,
+        minWidth: props.height,
         backgroundColor: props.color,
+        borderRadius: props.borderRadius,
+        opacity: props.opacity,
     }
 }));

@@ -20,7 +20,7 @@ ProgressBar.propTypes = {
 }
 
 ProgressBar.defaultProps = {
-    progress: 0.5,
+    progress: 0,
     height: 16,
     direction: 'row',
     color: '#007aff',

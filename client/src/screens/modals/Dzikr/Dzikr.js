@@ -1,13 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { SafeAreaView, Text, View } from 'react-native';
 
 import CountButton from '../../../components/Button/CountButton/CountButton.js';
 import MainButton from '../../../components/Button/MainButton/MainButton.js';
+import ProgressBar from '../../../components/ProgressBar/ProgressBar.js';
 import useStyles from './styles.js';
 
 export default function Dzikr({navigation}) {
     const styles = useStyles();
     const [count, setCount] = useState(0);
+    const [progress, setProgress] = useState(0);
+    
+    useEffect(() => {
+        setProgress(count/100);
+    }, [count])
 
     const incrementCount = () => {
         setCount(state => state + 1);
@@ -24,8 +30,9 @@ export default function Dzikr({navigation}) {
 
     return (
         <SafeAreaView style={styles.container}>
-            <View style={{ height: 64, justifyContent: 'flex-end' }}>
-                <MainButton label='back' marginBottom={0} onPress={() => navigation.goBack()} />
+            <View style={{ height: 40, flexDirection: 'row' }}>
+                <MainButton style={{ marginRight: 16 }} width={16} height={16} length={0} backgroundColor='#8e8e93' label='' marginBottom={0} onPress={() => navigation.goBack()} />
+                <ProgressBar progress={progress} />
             </View>
             <View style={{ flex: 1, marginBottom: 24 }}>
                 <View style={{ flexDirection: 'row', height: 54, justifyContent: 'center', marginHorizontal: 16 }}>
@@ -43,8 +50,8 @@ export default function Dzikr({navigation}) {
                 </View>
                 <View style={{ flex: 1, alignItems: 'center', justifyContent: 'space-between', marginTop: 20, paddingHorizontal: 24, paddingVertical: 36, borderRadius: 30, backgroundColor: '#f2f2f7' }}>
                     <View>
-                        <Text style={{ fontSize: 24, fontWeight: '500', textAlign: 'center', marginBottom: 24, writingDirection: 'rtl' }}>بِسْمِ اللهِ الرَّحْمَنِ الرَّحِيمِ</Text>
-                        <Text style={{ fontSize: 24, fontWeight: '500', textAlign: 'center', marginBottom: 24, writingDirection: 'rtl' }}>قُلْ هُوَ اللهُ أَحَدٌ، اللهُ الصَّمَدُ، لَمْ يَلِدْ وَلَمْ يُولَدْ، وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ</Text>
+                        <Text style={{ fontSize: 24, fontWeight: '500', textAlign: 'center', lineHeight: 40, marginBottom: 16, writingDirection: 'rtl' }}>بِسْمِ اللهِ الرَّحْمَنِ الرَّحِيمِ</Text>
+                        <Text style={{ fontSize: 24, fontWeight: '500', textAlign: 'center', lineHeight: 40, marginBottom: 16, writingDirection: 'rtl' }}>قُلْ هُوَ اللهُ أَحَدٌ، اللهُ الصَّمَدُ، لَمْ يَلِدْ وَلَمْ يُولَدْ، وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ</Text>
                     </View>
                     <Text style={{ color: '#8E8E93', fontSize: 18, fontWeight: '500' }}>QS. Al-Ikhlas: 1-4</Text>
                 </View>

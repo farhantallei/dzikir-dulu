@@ -18,7 +18,7 @@ const MainButton = props => {
     };
 
     return (
-        <View style={styles.container}>
+        <View style={{ ...styles.container, ...props.style }}>
             <TouchableWithoutFeedback onPress={props.onPress} onPressOut={onPressOut} onPressIn={onPressIn}>
                 <View style={styles.button} >
                     <View style={ press ? { ...styles.height, ...styles.heightPress } : styles.height }>

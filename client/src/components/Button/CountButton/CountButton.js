@@ -12,7 +12,6 @@ const CountButton = props => {
     useEffect(() => {
         const width = props.width;
         const length = props.length;
-        
         const getBorderTopRadius = `${(((width/2)-length)/(width/2))/2*100}%`;
 
         setTopLengthRadius(getBorderTopRadius);
@@ -37,7 +36,7 @@ const CountButton = props => {
             <View style={ press ? { ...styles.button, ...setTopRadius, ...styles.buttonPress } : { ...styles.button, ...setTopRadius } }>
                 <View style={ press ? { ...styles.height, ...styles.heightPress } : styles.height }>
                     <View style={styles.inner}>
-                        <Text style={styles.label}>0</Text>
+                        <Text style={styles.label}>{props.count}</Text>
                     </View>
                 </View>
             </View>
@@ -46,6 +45,7 @@ const CountButton = props => {
 }
 
 CountButton.propTypes = {
+    count: PropTypes.number,
     color: PropTypes.string,
     backgroundColor: PropTypes.string,
     width: PropTypes.number,
@@ -56,10 +56,11 @@ CountButton.propTypes = {
 }
 
 CountButton.defaultProps = {
+    count: 0,
     color: '#ffffff',
     backgroundColor: '#007aff',
     width: 100,
-    length: 12,
+    length: 6,
     fontWeight: 'bold',
     fontSize: 36,
     textTransform: 'uppercase',

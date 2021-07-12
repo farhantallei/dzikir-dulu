@@ -48,7 +48,7 @@ MainButton.propTypes = {
 
 MainButton.defaultProps = {
     label: 'button',
-    flex: 1,
+    flex: 0,
     color: '#ffffff',
     backgroundColor: '#007aff',
     marginTop: 0,

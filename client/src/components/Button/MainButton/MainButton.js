@@ -33,6 +33,7 @@ const MainButton = props => {
 }
 
 MainButton.propTypes = {
+    label: PropTypes.string,
     flex: PropTypes.number,
     color: PropTypes.string,
     backgroundColor: PropTypes.string,
@@ -44,9 +45,10 @@ MainButton.propTypes = {
     fontWeight: PropTypes.string,
     fontSize: PropTypes.number,
     textTransform: PropTypes.string,
-};
+}
 
 MainButton.defaultProps = {
+    label: 'button',
     flex: 1,
     color: '#ffffff',
     backgroundColor: '#007aff',

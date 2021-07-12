@@ -3,6 +3,7 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create(props => ({
     container: {
       flex: props.flex,
+      width: props.width,
       marginTop: props.marginTop,
       marginBottom: props.marginBottom,
     },

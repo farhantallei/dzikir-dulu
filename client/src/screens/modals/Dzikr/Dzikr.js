@@ -27,10 +27,29 @@ export default function Dzikr({navigation}) {
             <View style={{ height: 64, justifyContent: 'flex-end' }}>
                 <MainButton label='back' marginBottom={0} onPress={() => navigation.goBack()} />
             </View>
-            <View style={{ flex: 1 }}>
-                <View style={{ flex: 1, backgroundColor: '#f2f2f7', marginVertical: 24 }}></View>
+            <View style={{ flex: 1, marginBottom: 24 }}>
+                <View style={{ flexDirection: 'row', height: 54, justifyContent: 'center', marginHorizontal: 16 }}>
+                    <View style={{ width: 70 }} />
+                    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'space-between' }}>
+                        <Text style={{ fontSize: 18, fontWeight: '500' }}>baca</Text>
+                        <Text style={{ fontSize: 24, fontWeight: '600' }}>3X</Text>
+                    </View>
+                    <View style={{ width: 70, alignItems: 'flex-end', justifyContent: 'center' }}>
+                        <Text>
+                            <Text style={{ fontSize: 24, fontWeight: '600' }}>2 </Text>
+                            <Text style={{ fontSize: 18 }}>/ 18</Text>
+                        </Text>
+                    </View>
+                </View>
+                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'space-between', marginTop: 20, paddingHorizontal: 24, paddingVertical: 36, borderRadius: 30, backgroundColor: '#f2f2f7' }}>
+                    <View>
+                        <Text style={{ fontSize: 24, fontWeight: '500', textAlign: 'center', marginBottom: 24, writingDirection: 'rtl' }}>بِسْمِ اللهِ الرَّحْمَنِ الرَّحِيمِ</Text>
+                        <Text style={{ fontSize: 24, fontWeight: '500', textAlign: 'center', marginBottom: 24, writingDirection: 'rtl' }}>قُلْ هُوَ اللهُ أَحَدٌ، اللهُ الصَّمَدُ، لَمْ يَلِدْ وَلَمْ يُولَدْ، وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ</Text>
+                    </View>
+                    <Text style={{ color: '#8E8E93', fontSize: 18, fontWeight: '500' }}>QS. Al-Ikhlas: 1-4</Text>
+                </View>
             </View>
-            <View style={{ height: 150, marginBottom: 24, justifyContent: 'flex-end', paddingHorizontal: 8 }}>
+            <View style={{ height: 150, justifyContent: 'flex-end' }}>
                 <View style={{ flexDirection: 'row', marginBottom: 15, justifyContent: 'space-between' }}>
                     <View style={{ flex: 1, alignItems: 'flex-end', justifyContent: 'center', marginRight: 35 }}>
                         <MainButton label='' height={30} width={30} length={4} radius={15} backgroundColor={'orange'} marginBottom={0} onPress={decrementCount} />
@@ -51,12 +70,6 @@ export default function Dzikr({navigation}) {
                     </View>
                 </View>
             </View>
-        {/* <View style={{ height: '100%', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-                <MainButton label='back' marginBottom={35} onPress={() => navigation.goBack()} />
-                <MainButton label='reset' backgroundColor='red' marginBottom={35} onPress={resetCount} />
-                <MainButton label='-1' color='black' backgroundColor='yellow' marginBottom={35} onPress={decrementCount} />
-                <CountButton count={count} onPress={incrementCount} />
-            </View> */}
         </SafeAreaView>
     );
 }

@@ -5,6 +5,7 @@ export default StyleSheet.create(() => ({
       flex: 1,
       backgroundColor: '#fff',
       justifyContent: 'space-around',
-      marginHorizontal: 16,
+      marginHorizontal: 24,
+      marginBottom: 24,
     },
 }));

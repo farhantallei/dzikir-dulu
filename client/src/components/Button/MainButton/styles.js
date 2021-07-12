@@ -30,9 +30,6 @@ export default StyleSheet.create(props => ({
       justifyContent: "center",
       borderRadius: props.radius,
     },
-    innerPress: {
-      borderRadius: props.radius,
-    },
     label: {
       color: props.color,
       fontWeight: props.fontWeight,

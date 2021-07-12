@@ -22,7 +22,7 @@ const MainButton = props => {
             <TouchableWithoutFeedback onPress={props.onPress} onPressOut={onPressOut} onPressIn={onPressIn}>
                 <View style={styles.button} >
                     <View style={ press ? { ...styles.height, ...styles.heightPress } : styles.height }>
-                        <View style={ press ? { ...styles.inner, ...styles.innerPress } : styles.inner }>
+                        <View style={styles.inner}>
                             <Text style={styles.label}>{props.label}</Text>
                         </View>
                     </View>

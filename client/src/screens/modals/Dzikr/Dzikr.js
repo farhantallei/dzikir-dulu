@@ -4,6 +4,7 @@ import { SafeAreaView, Text, View } from 'react-native';
 import CountButton from '../../../components/Button/CountButton/CountButton.js';
 import MainButton from '../../../components/Button/MainButton/MainButton.js';
 import ProgressBar from '../../../components/ProgressBar/ProgressBar.js';
+import ArabicText from '../../../components/Text/ArabicText/ArabicText.js';
 import useStyles from './styles.js';
 
 export default function Dzikr({navigation}) {
@@ -50,13 +51,7 @@ export default function Dzikr({navigation}) {
                         </Text>
                     </View>
                 </View>
-                <View style={styles.card}>
-                    <View>
-                        <Text style={styles.cardArabic}>بِسْمِ اللهِ الرَّحْمَنِ الرَّحِيمِ</Text>
-                        <Text style={styles.cardArabic}>قُلْ هُوَ اللهُ أَحَدٌ، اللهُ الصَّمَدُ، لَمْ يَلِدْ وَلَمْ يُولَدْ، وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ</Text>
-                    </View>
-                    <Text style={styles.cardLabel}>QS. Al-Ikhlas: 1-4</Text>
-                </View>
+                <ArabicText />
             </View>
             <View style={styles.footer}>
                 <View style={styles.moreActionContainer}>
@@ -69,7 +64,7 @@ export default function Dzikr({navigation}) {
                 </View>
                 <View style={styles.actionContainer}>
                     <View style={styles.prevNextAction}>
-                        <MainButton label='prev' color={'#8e8e93'} backgroundColor={'#f2f2f7'} marginBottom={0} onPress={() => {}} />
+                        <MainButton label='prev' color={'#8e8e93'} backgroundColor={'#f2f2f7'} marginBottom={0} onPress={() => navigation.goBack()} />
                     </View>
                     <View style={styles.centerAction}>
                         <CountButton count={count} onPress={incrementCount} />

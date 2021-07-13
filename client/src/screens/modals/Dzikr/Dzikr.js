@@ -4,7 +4,7 @@ import { SafeAreaView, Text, View } from 'react-native';
 import CountButton from '../../../components/Button/CountButton/CountButton.js';
 import MainButton from '../../../components/Button/MainButton/MainButton.js';
 import ProgressBar from '../../../components/ProgressBar/ProgressBar.js';
-import ArabicText from '../../../components/Text/ArabicText/ArabicText.js';
+import Card from '../../../components/Card/Card.js';
 import useStyles from './styles.js';
 
 export default function Dzikr({navigation}) {
@@ -51,7 +51,7 @@ export default function Dzikr({navigation}) {
                         </Text>
                     </View>
                 </View>
-                <ArabicText />
+                <Card />
             </View>
             <View style={styles.footer}>
                 <View style={styles.moreActionContainer}>

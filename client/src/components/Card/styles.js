@@ -1,28 +1,36 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create(props => ({
-    card: {
+    container: {
         flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
         marginTop: 20,
         paddingHorizontal: 24,
         paddingVertical: 36,
         borderRadius: 30,
         backgroundColor: '#f2f2f7',
     },
-    cardContent: {
+    content: {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'space-between',
     },
-    cardLabel: {
+    source: {
         color: '#8E8E93',
         fontSize: 18,
         fontWeight: '500',
     },
-    cardArabic: {
+    arabic: {
         fontWeight: '500',
         textAlign: 'center',
         marginBottom: 16,
         writingDirection: 'rtl',
+    },
+    loadingContainer: {
+        height: '100%',
+        width: '100%',
+        position: 'absolute',
+        justifyContent: 'center',
     },
 }));

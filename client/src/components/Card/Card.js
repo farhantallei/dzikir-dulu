@@ -40,16 +40,16 @@ const Card = props => {
     };
 
     return (
-        <View style={{ ...styles.card, justifyContent: 'center', alignItems: 'center' }}>
-            <View style={{ height: '100%', width: '100%', position: 'absolute', justifyContent: 'center' }}>
+        <View style={styles.container}>
+            <View style={styles.loadingContainer}>
                 <ActivityIndicator animating={status.animating} />
             </View>
-            <View style={{ ...styles.cardContent, opacity: status.opacity }}>
-                <View style={{ flex: 1 }}>
-                    {/* <Text style={styles.cardArabic}>بِسْمِ اللهِ الرَّحْمَنِ الرَّحِيمِ</Text> */}
-                    <Text style={{ ...styles.cardArabic, ...scale }} onLayout={getHeight}>للهُ لاَ إِلَهَ إِلاَّ هُوَ الْحَيُّ الْقَيُّومُ، لاَ تَأْخُذُهُ سِنَةٌ وَلاَ نَوْمٌ، لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ، مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلاَّ بِإِذْنِهِ، يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ، وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهِ إِلاَّ بِمَا شَاءَ، وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ، وَلَا يَئُودُهُ حِفْظُهُمَا، وَهُوَ الْعَلِيُّ الْعَظِيمُ</Text>
+            <View style={{ ...styles.content, opacity: status.opacity }}>
+                <View flex={1}>
+                    {/* <Text style={styles.arabic}>بِسْمِ اللهِ الرَّحْمَنِ الرَّحِيمِ</Text> */}
+                    <Text style={{ ...styles.arabic, ...scale }} onLayout={getHeight}>للهُ لاَ إِلَهَ إِلاَّ هُوَ الْحَيُّ الْقَيُّومُ، لاَ تَأْخُذُهُ سِنَةٌ وَلاَ نَوْمٌ، لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ، مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلاَّ بِإِذْنِهِ، يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ، وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهِ إِلاَّ بِمَا شَاءَ، وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ، وَلَا يَئُودُهُ حِفْظُهُمَا، وَهُوَ الْعَلِيُّ الْعَظِيمُ</Text>
                 </View>
-                <Text style={styles.cardLabel}>HR. Muslim no. 2723</Text>
+                <Text style={styles.source}>HR. Muslim no. 2723</Text>
             </View>
         </View>
     );

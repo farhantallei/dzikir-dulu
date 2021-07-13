@@ -9,8 +9,9 @@ export default StyleSheet.create(() => ({
         marginVertical: 24,
     },
     header: {
-        height: 40,
         flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom: 16,
     },
     section: {
         flex: 1,

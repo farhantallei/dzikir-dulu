@@ -34,7 +34,7 @@ export default function Dzikr({navigation}) {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.header}>
-                <MainButton style={{ marginRight: 16 }} width={16} height={16} length={0} backgroundColor='#8e8e93' label='' marginBottom={0} onPress={() => navigation.goBack()} />
+                <MainButton label='&#x2a2f;' fontSize={24} width={24} height={24} length={0} color='#e5e5ea' backgroundColor='#aeaeb2' marginBottom={0} style={{ marginRight: 16 }} onPress={() => navigation.goBack()} />
                 <ProgressBar progress={progress} opacity={opacity} />
             </View>
             <View style={styles.section}>
@@ -56,10 +56,10 @@ export default function Dzikr({navigation}) {
             <View style={styles.footer}>
                 <View style={styles.moreActionContainer}>
                     <View style={styles.subtractAction}>
-                        <MainButton label='' height={30} width={30} length={4} radius={15} backgroundColor={'orange'} marginBottom={0} onPress={decrementCount} />
+                        <MainButton label='&#x2013;' height={30} width={30} length={4} radius={15} backgroundColor={'#ffcc00'} marginBottom={0} onPress={decrementCount} />
                     </View>
                     <View style={styles.resetAction}>
-                        <MainButton label='' height={30} width={30} length={4} radius={15} backgroundColor={'red'} marginBottom={0} onPress={resetCount} />
+                        <MainButton label='&#x21ba;' height={30} width={30} length={4} radius={15} backgroundColor={'#ff9500'} marginBottom={0} onPress={resetCount} />
                     </View>
                 </View>
                 <View style={styles.actionContainer}>
@@ -70,7 +70,7 @@ export default function Dzikr({navigation}) {
                         <CountButton count={count} onPress={incrementCount} />
                     </View>
                     <View style={styles.prevNextAction}>
-                        <MainButton label='next' backgroundColor={'#34c759'} marginBottom={0} onPress={() => {}} />
+                        <MainButton label='next' color={'#8e8e93'} backgroundColor={'#f2f2f7'} marginBottom={0} onPress={() => {}} />
                     </View>
                 </View>
             </View>

@@ -60,31 +60,6 @@ export default StyleSheet.create(() => ({
         justifyContent: 'center',
     },
 
-    // Dzikr card
-    card: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        marginTop: 20,
-        paddingHorizontal: 24,
-        paddingVertical: 36,
-        borderRadius: 30,
-        backgroundColor: '#f2f2f7',
-    },
-    cardLabel: {
-        color: '#8E8E93',
-        fontSize: 18,
-        fontWeight: '500',
-    },
-    cardArabic: {
-        fontSize: 24,
-        fontWeight: '500',
-        textAlign: 'center',
-        lineHeight: 40,
-        marginBottom: 16,
-        writingDirection: 'rtl',
-    },
-
     /*==============================================================================*/
     /* Footer.
     /*==============================================================================*/

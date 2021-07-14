@@ -12,7 +12,7 @@ app.use(cors());
 
 app.use('/collections', collectionRoutes);
 
-const CONNECTION_URL = 'mongodb://farhantallei:419555444@dzikir-data-cluster-shard-00-00.mmgd6.mongodb.net:27017,dzikir-data-cluster-shard-00-01.mmgd6.mongodb.net:27017,dzikir-data-cluster-shard-00-02.mmgd6.mongodb.net:27017/dzikir-database?ssl=true&replicaSet=atlas-xsawxy-shard-0&authSource=admin&retryWrites=true&w=majority';
+const CONNECTION_URL = 'mongodb+srv://farhantallei:419555444Sifrhn@dzikir-data-cluster.mmgd6.mongodb.net/dzikir-database?retryWrites=true&w=majority';
 const PORT = process.env.PORT || 5000;
 
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })

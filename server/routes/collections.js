@@ -1,6 +1,6 @@
 import express from 'express';
 
-import { getCollection } from '../controllers/collections';
+import { getCollection } from '../controllers/collections.js';
 
 const router = express.Router();
 

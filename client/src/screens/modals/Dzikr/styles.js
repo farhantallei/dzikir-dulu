@@ -15,7 +15,7 @@ export default StyleSheet.create(() => ({
     },
     section: {
         flex: 1,
-        marginBottom: 24,
+        marginBottom: 18,
     },
     footer: {
         height: 150,

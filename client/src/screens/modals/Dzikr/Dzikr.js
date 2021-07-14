@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { SafeAreaView, Text, View } from 'react-native';
 
+import CircleButton from '../../../components/Button/CircleButton/CircleButton.js';
 import CountButton from '../../../components/Button/CountButton/CountButton.js';
 import MainButton from '../../../components/Button/MainButton/MainButton.js';
 import ProgressBar from '../../../components/ProgressBar/ProgressBar.js';
@@ -59,7 +60,9 @@ export default function Dzikr({navigation}) {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.header}>
-                <MainButton label='&#x2a2f;' fontSize={24} width={24} height={24} length={0} color='#e5e5ea' backgroundColor='#aeaeb2' marginBottom={0} style={{ marginRight: 16 }} onPress={() => navigation.goBack()} />
+                <View style={styles.closeButton}>
+                    <CircleButton icon='&#x2a2f;' fontSize={24} width={24} length={2} color='#e5e5ea' backgroundColor='#aeaeb2' onPress={() => navigation.goBack()} />
+                </View>
                 <ProgressBar progress={progress} color={countButtonColor} opacity={opacity} />
             </View>
             <View style={styles.section}>
@@ -81,10 +84,10 @@ export default function Dzikr({navigation}) {
             <View style={styles.footer}>
                 <View style={styles.moreActionContainer}>
                     <View style={styles.subtractAction}>
-                        <MainButton label='&#x2013;' height={30} width={30} length={4} radius={15} backgroundColor={'#ffcc00'} marginBottom={0} onPress={decrementCount} />
+                        <CircleButton icon='&#x2013;' backgroundColor={'#ffcc00'} onPress={decrementCount} />
                     </View>
                     <View style={styles.resetAction}>
-                        <MainButton label='&#x21ba;' height={30} width={30} length={4} radius={15} backgroundColor={'#ff9500'} marginBottom={0} onPress={resetCount} />
+                        <CircleButton icon='&#x21ba;' backgroundColor={'#ff9500'} onPress={resetCount} />
                     </View>
                 </View>
                 <View style={styles.actionContainer}>

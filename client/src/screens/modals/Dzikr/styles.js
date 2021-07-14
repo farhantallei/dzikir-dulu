@@ -96,4 +96,12 @@ export default StyleSheet.create(() => ({
         alignItems: 'flex-start',
         justifyContent: 'center',
     },
+
+    /*==============================================================================*/
+    /* Header.
+    /*==============================================================================*/
+    // Close Button
+    closeButton: {
+        marginRight: 12,
+    },
 }));

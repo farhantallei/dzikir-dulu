@@ -9,6 +9,8 @@ const MainButton = props => {
     const styles = useStyles(props);
     const [press, setPress] = useState(false);
 
+    const disabled  = props.disabled;
+
     const onPressIn = () => {
         setPress(true);
     };
@@ -19,9 +21,9 @@ const MainButton = props => {
 
     return (
         <View style={{ ...styles.container, ...props.style }}>
-            <TouchableWithoutFeedback onPress={props.onPress} onPressOut={onPressOut} onPressIn={onPressIn}>
+            <TouchableWithoutFeedback disabled={props.disabled} onPress={props.onPress} onPressOut={onPressOut} onPressIn={onPressIn}>
                 <View style={styles.button} >
-                    <View style={ press ? { ...styles.height, ...styles.heightPress } : styles.height }>
+                    <View style={ disabled ? { ...styles.height, ...styles.heightPress } : (press ? { ...styles.height, ...styles.heightPress } : styles.height) }>
                         <View style={styles.inner}>
                             <Text style={styles.label}>{props.label}</Text>
                         </View>
@@ -33,6 +35,7 @@ const MainButton = props => {
 }
 
 MainButton.propTypes = {
+    disabled: PropTypes.bool,
     label: PropTypes.string,
     flex: PropTypes.number,
     color: PropTypes.string,
@@ -47,6 +50,7 @@ MainButton.propTypes = {
 }
 
 MainButton.defaultProps = {
+    disabled: false,
     label: 'button',
     flex: 0,
     color: '#ffffff',

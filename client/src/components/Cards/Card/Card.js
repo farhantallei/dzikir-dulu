@@ -46,8 +46,7 @@ const Card = props => {
                         </Text>
                     </View>
                     <View style={styles.titleContainer} onLayout={e => setTitleHeight(e.nativeEvent.layout.height)}>
-                        {/* <Text style={styles.title}>Ayat Kursi</Text> */}
-                        <Text style={styles.title}>(QS. Al-Ikhlas: 1-4)</Text>
+                        <Text style={styles.title}>(QS. An-Naas: 1-6)</Text>
                     </View>
                 </View>
             </View>

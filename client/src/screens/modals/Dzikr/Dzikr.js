@@ -10,32 +10,57 @@ import useStyles from './styles.js';
 export default function Dzikr({navigation}) {
     const styles = useStyles();
     const [count, setCount] = useState(0);
+    const [page, setPage] = useState(0);
     const [progress, setProgress] = useState(0);
     const [opacity, setOpacity] = useState(0);
+    const [countButtonColor, setCountButtonColor] = useState('#007aff');
+    
+    const maxPage = 17;
+    const countTime = 3;
     
     useEffect(() => {
-        setProgress(count/100);
+        setProgress(count/countTime);
         count === 0 ? setOpacity(0) : setOpacity(1);
+        if (count === countTime) {
+            setCountButtonColor('#9ed953');
+        } else {
+            setCountButtonColor('#007aff');
+        }
     }, [count])
 
     const incrementCount = () => {
-        setCount(state => state + 1);
+        if (count !== countTime) setCount(state => state + 1);
     };
 
     const decrementCount = () => {
-        if (count > 0)
+        if (count > 0) {
             setCount(state => state - 1);
+        }
     };
 
     const resetCount = () => {
         setCount(0);
     };
 
+    const prevPage = () => {
+        if (page > 0)
+            setPage(state => state - 1);
+        
+        setCount(0);
+    }
+
+    const nextPage = () => {
+        if (page < maxPage) {
+            setPage(state => state+1);
+            setCount(0);
+        }
+    }
+
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.header}>
                 <MainButton label='&#x2a2f;' fontSize={24} width={24} height={24} length={0} color='#e5e5ea' backgroundColor='#aeaeb2' marginBottom={0} style={{ marginRight: 16 }} onPress={() => navigation.goBack()} />
-                <ProgressBar progress={progress} opacity={opacity} />
+                <ProgressBar progress={progress} color={countButtonColor} opacity={opacity} />
             </View>
             <View style={styles.section}>
                 <View style={styles.detail}>
@@ -46,12 +71,12 @@ export default function Dzikr({navigation}) {
                     </View>
                     <View style={styles.rightDetail}>
                         <Text>
-                            <Text style={styles.h1Sem}>2 </Text>
+                            <Text style={styles.h1Sem}>{page+1} </Text>
                             <Text style={styles.pNor}>/ 18</Text>
                         </Text>
                     </View>
                 </View>
-                <Cards />
+                <Cards page={page} />
             </View>
             <View style={styles.footer}>
                 <View style={styles.moreActionContainer}>
@@ -64,13 +89,13 @@ export default function Dzikr({navigation}) {
                 </View>
                 <View style={styles.actionContainer}>
                     <View style={styles.prevNextAction}>
-                        <MainButton label='prev' color={'#8e8e93'} backgroundColor={'#f2f2f7'} marginBottom={0} onPress={() => navigation.goBack()} />
+                        <MainButton disabled={page === 0 ? true : false} label='prev' color={'#8e8e93'} backgroundColor={'#f2f2f7'} marginBottom={0} onPress={prevPage} />
                     </View>
                     <View style={styles.centerAction}>
-                        <CountButton count={count} onPress={incrementCount} />
+                        <CountButton disabled={count === countTime ? true : false} count={count === countTime ? '\u2713' : count} backgroundColor={countButtonColor} onPress={incrementCount} />
                     </View>
                     <View style={styles.prevNextAction}>
-                        <MainButton label='next' color={'#8e8e93'} backgroundColor={'#f2f2f7'} marginBottom={0} onPress={() => {}} />
+                        <MainButton disabled={page === maxPage ? true : false} label={page === maxPage ? 'done' : 'next'} color={page === maxPage ? '#8e8e93' : (count === countTime ? '#ffffff' : '#8e8e93')} backgroundColor={page === maxPage ? '#f2f2f7' : (count === countTime ? '#9ed953' : '#f2f2f7')} marginBottom={0} onPress={nextPage} />
                     </View>
                 </View>
             </View>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { View } from 'react-native';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import Card from './Card/Card.js';
@@ -7,6 +8,9 @@ import useStyles from './styles.js';
 
 const Cards = props => {
     const styles = useStyles(props);
+    const collections = useSelector(state => state.collections);
+
+    console.log(collections);
 
     // const [page, setPage] = useState(props.page);
 

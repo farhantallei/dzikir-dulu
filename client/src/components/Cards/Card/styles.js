@@ -15,7 +15,7 @@ export default StyleSheet.create(props => ({
         paddingTop: 30,
         paddingBottom: 16,
         borderRadius: 30,
-        backgroundColor: '#f2f2f7',
+        backgroundColor: props.backgroundColor,
     },
     content: {
         flex: 1,
@@ -30,7 +30,9 @@ export default StyleSheet.create(props => ({
         paddingTop: 12,
     },
     arabic: {
+        fontSize: 24,
         fontWeight: '500',
+        lineHeight: 40,
         textAlign: 'center',
         writingDirection: 'rtl',
     },
@@ -41,9 +43,11 @@ export default StyleSheet.create(props => ({
         textAlign: 'center',
     },
     source: {
+        flex: 1,
         color: '#8E8E93',
         fontSize: 16,
         marginTop: 12,
+        textAlign: 'center',
     },
     loadingContainer: {
         height: '100%',

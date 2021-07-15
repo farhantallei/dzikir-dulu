@@ -4,8 +4,9 @@ import { SafeAreaView, View } from 'react-native';
 import MainButton from '../../../components/Button/MainButton/MainButton.js';
 import useStyles from './styles.js';
 
-export default function Home({navigation}) {
+const Home = props => {
   const styles = useStyles();
+  const navigation = props.navigation;
 
   return (
     <SafeAreaView style={styles.container}>
@@ -16,3 +17,5 @@ export default function Home({navigation}) {
     </SafeAreaView>
   );
 }
+
+export default Home;

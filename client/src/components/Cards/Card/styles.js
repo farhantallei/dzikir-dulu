@@ -17,11 +17,6 @@ export default StyleSheet.create(props => ({
         borderRadius: 30,
         backgroundColor: props.backgroundColor,
     },
-    content: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'space-between',
-    },
     arabicContainer: {
         flex: 1,
         justifyContent:'center',
@@ -49,10 +44,8 @@ export default StyleSheet.create(props => ({
         marginTop: 12,
         textAlign: 'center',
     },
-    loadingContainer: {
-        height: '100%',
-        width: '100%',
-        position: 'absolute',
-        justifyContent: 'center',
+    footer: {
+        paddingHorizontal: 24,
+        minHeight: 51,
     },
 }));

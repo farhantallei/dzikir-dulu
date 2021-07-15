@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { SafeAreaView, Text, View } from 'react-native';
+import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import CircleButton from '../../../components/Button/CircleButton/CircleButton.js';
 import CountButton from '../../../components/Button/CountButton/CountButton.js';
@@ -8,16 +10,18 @@ import ProgressBar from '../../../components/ProgressBar/ProgressBar.js';
 import Cards from '../../../components/Cards/Cards.js';
 import useStyles from './styles.js';
 
-export default function Dzikr({navigation}) {
+const Dzikr = props => {
     const styles = useStyles();
+    const collections = useSelector(state => state.collections);
+    const navigation = props.navigation;
     const [count, setCount] = useState(0);
     const [page, setPage] = useState(0);
     const [progress, setProgress] = useState(0);
     const [opacity, setOpacity] = useState(0);
     const [countButtonColor, setCountButtonColor] = useState('#007aff');
     
-    const maxPage = 17;
-    const countTime = 3;
+    const maxPage = collections.length-1;
+    const countTime = collections.map(data => data.timesTotal)[page];
     
     useEffect(() => {
         setProgress(count/countTime);
@@ -63,45 +67,64 @@ export default function Dzikr({navigation}) {
                 <View style={styles.closeButton}>
                     <CircleButton icon='&#x2a2f;' fontSize={24} width={24} length={2} color='#e5e5ea' backgroundColor='#aeaeb2' onPress={() => navigation.goBack()} />
                 </View>
-                <ProgressBar progress={progress} color={countButtonColor} opacity={opacity} />
+                <ProgressBar progress={!collections.length ? 0 :progress} color={countButtonColor} opacity={opacity} />
             </View>
             <View style={styles.section}>
                 <View style={styles.detail}>
                     <View style={styles.leftDetail} />
+                    {!collections.length ? (
+                    <View style={{ ...styles.centerDetail, paddingHorizontal: 12 }}>
+                        <View style={{ flex: 1, width: '100%', backgroundColor: props.backgroundColor, borderRadius: 15 }} />
+                    </View>) : (
                     <View style={styles.centerDetail}>
                         <Text style={styles.pMed}>baca</Text>
-                        <Text style={styles.h1Sem}>3X</Text>
-                    </View>
+                        <Text style={styles.h1Sem}>{`${countTime}X`}</Text>
+                    </View>)}
+                    {!collections.length ? (
+                    <View style={{ ...styles.rightDetail, paddingLeft: 12, alignItems: 'flex-end' }}>
+                        <View style={{ flex: 1, width: '100%', backgroundColor: props.backgroundColor, borderRadius: 15 }} />
+                    </View>) : (
                     <View style={styles.rightDetail}>
                         <Text>
                             <Text style={styles.h1Sem}>{page+1} </Text>
-                            <Text style={styles.pNor}>/ 18</Text>
+                            <Text style={styles.pNor}>/ {maxPage+1}</Text>
                         </Text>
-                    </View>
+                    </View>)}
                 </View>
-                <Cards page={page} />
+                <Cards page={page} props={props} />
             </View>
             <View style={styles.footer}>
                 <View style={styles.moreActionContainer}>
                     <View style={styles.subtractAction}>
-                        <CircleButton icon='&#x2013;' backgroundColor={'#ffcc00'} onPress={decrementCount} />
+                        <CircleButton disabled={!collections.length ? true : false} icon={!collections.length ? '' : '\u2013'} backgroundColor={!collections.length ? props.backgroundColor : '#ffcc00'} onPress={decrementCount} />
                     </View>
                     <View style={styles.resetAction}>
-                        <CircleButton icon='&#x21ba;' backgroundColor={'#ff9500'} onPress={resetCount} />
+                        <CircleButton disabled={!collections.length ? true : false} icon={!collections.length ? '' : '\u21BA'} backgroundColor={!collections.length ? props.backgroundColor : '#ff9500'} onPress={resetCount} />
                     </View>
                 </View>
                 <View style={styles.actionContainer}>
                     <View style={styles.prevNextAction}>
-                        <MainButton disabled={page === 0 ? true : false} label='prev' color={'#8e8e93'} backgroundColor={'#f2f2f7'} marginBottom={0} onPress={prevPage} />
+                        <MainButton disabled={page === 0 || !collections.length ? true : false} label={!collections.length ? '' : 'prev'} color={'#8e8e93'} backgroundColor={'#f2f2f7'} marginBottom={0} onPress={prevPage} />
                     </View>
                     <View style={styles.centerAction}>
-                        <CountButton disabled={count === countTime ? true : false} count={count === countTime ? '\u2713' : count} backgroundColor={countButtonColor} onPress={incrementCount} />
+                        <CountButton disabled={count === countTime || !collections.length ? true : false} count={!collections.length ? '' : (count === countTime ? '\u2713' : count)} backgroundColor={!collections.length ? props.backgroundColor : countButtonColor} onPress={incrementCount} />
                     </View>
                     <View style={styles.prevNextAction}>
-                        <MainButton disabled={page === maxPage ? true : false} label={page === maxPage ? 'done' : 'next'} color={page === maxPage ? '#8e8e93' : (count === countTime ? '#ffffff' : '#8e8e93')} backgroundColor={page === maxPage ? '#f2f2f7' : (count === countTime ? '#9ed953' : '#f2f2f7')} marginBottom={0} onPress={nextPage} />
+                        <MainButton disabled={page === maxPage || !collections.length ? true : false} label={!collections.length ? '' : (page === maxPage ? 'done' : 'next')} color={page === maxPage ? '#8e8e93' : (count === countTime ? '#ffffff' : '#8e8e93')} backgroundColor={page === maxPage ? '#f2f2f7' : (count === countTime ? '#9ed953' : '#f2f2f7')} marginBottom={0} onPress={nextPage} />
                     </View>
                 </View>
             </View>
         </SafeAreaView>
     );
 }
+
+Dzikr.propTypes = {
+    page: PropTypes.number,
+}
+
+Dzikr.defaultProps = {
+    page: 0,
+    backgroundColor: '#f2f2f7',
+}
+
+export default Dzikr;

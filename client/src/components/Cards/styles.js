@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-export default StyleSheet.create(() => ({
+export default StyleSheet.create(props => ({
     container: {
         flex: 1,
         backgroundColor: '#fff',
@@ -20,5 +20,32 @@ export default StyleSheet.create(() => ({
     footer: {
         height: 150,
         justifyContent: 'flex-end',
+    },
+    cardContainer: {
+        flex: 1,
+        alignItems: 'center',
+    },
+    card: {
+        flex: 1,
+        width: '100%',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: 20,
+        paddingHorizontal: 24,
+        paddingTop: 30,
+        paddingBottom: 16,
+        borderRadius: 30,
+        backgroundColor: props.backgroundColor,
+    },
+    content: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'space-between',
+    },
+    loadingContainer: {
+        height: '100%',
+        width: '100%',
+        position: 'absolute',
+        justifyContent: 'center',
     },
 }));

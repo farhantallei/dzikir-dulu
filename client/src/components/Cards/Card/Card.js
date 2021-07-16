@@ -10,18 +10,13 @@ const Card = ({ props, collection, page }) => {
 
     return (
         <View style={styles.container}>
-            <View style={collections[page].title[0] === "" ? { ...styles.card, paddingTop: 30, paddingBottom: 30 } : styles.card}>
+            <View style={collections[page].title[0] === "" ? { ...styles.card, ...styles.noTitleCard } : styles.card}>
                 <View style={styles.arabicContainer}>
-                    {collection.arabic.map((arabic, id) => <Text key={id} style={ (id === 1) ? {...styles.arabic, marginTop: 12} : styles.arabic }>{arabic}</Text>)}
+                    {collection.arabic.map((arabic, id) => <Text key={id} style={ (id === 1) ? { ...styles.arabic, ...styles.singleCard } : styles.arabic }>{arabic}</Text>)}
                 </View>
-                {collections[page].title[0] === "" ? null : (
-                <View style={styles.titleContainer}>
-                    {collection.title.map((title, id) => <Text key={id} style={styles.title}>{title}</Text>)}
-                </View>)}
+                {collections[page].title[0] === "" ? null : collection.title.map((title, id) => <Text key={id} style={styles.title}>{title}</Text>)}
             </View>
-            <View style={styles.footer}>
-                <Text style={styles.source}>{collection.source}</Text>
-            </View>
+            <Text style={styles.source}>{collection.source}</Text>
         </View>
     );
 }

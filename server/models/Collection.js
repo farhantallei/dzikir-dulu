@@ -5,6 +5,7 @@ const collectionSchema = mongoose.Schema({
     source: String,
     title: [String],
     arabic: [String],
+    size: String,
 });
 
 const Collection = mongoose.model('Collection', collectionSchema, 'dzikir');

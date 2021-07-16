@@ -25,7 +25,7 @@ ProgressBar.defaultProps = {
     direction: 'row',
     color: '#007aff',
     backgroundColor: '#f2f2f7',
-    borderRadius: '50%',
+    borderRadius: 8,
     opacity: 0,
 }
 

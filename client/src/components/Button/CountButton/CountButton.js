@@ -11,7 +11,7 @@ const CountButton = props => {
     const disabled  = props.disabled;
     const width = props.width;
     const length = props.length;
-    const getBorderTopRadius = `${(((width/2)-length)/(width/2))/2*100}%`;
+    const getBorderTopRadius = (((width/2)-length)/(width/2))/2*width;
     
     const setTopRadius = {
         borderTopLeftRadius: getBorderTopRadius,

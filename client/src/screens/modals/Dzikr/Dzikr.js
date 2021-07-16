@@ -31,7 +31,7 @@ const Dzikr = props => {
         } else {
             setCountButtonColor('#007aff');
         }
-    }, [count])
+    }, [collections, count])
 
     const incrementCount = () => {
         if (count !== countTime) setCount(state => state + 1);

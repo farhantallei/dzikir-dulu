@@ -36,10 +36,7 @@ export default StyleSheet.create(props => ({
         color: '#8E8E93',
         fontSize: 12,
         marginTop: 12,
+        paddingHorizontal: 36,
         textAlign: 'center',
-    },
-    footer: {
-        paddingHorizontal: 24,
-        minHeight: 51,
     },
 }));

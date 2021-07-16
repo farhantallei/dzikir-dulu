@@ -8,6 +8,6 @@ const collectionSchema = mongoose.Schema({
     size: String,
 });
 
-const Collection = mongoose.model('Collection', collectionSchema, 'dzikir');
+export const pagiCollection = mongoose.model('pagiCollection', collectionSchema, 'pagi');
 
-export default Collection;
+export const petangCollection = mongoose.model('petangCollection', collectionSchema, 'petang');

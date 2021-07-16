@@ -1,9 +1,10 @@
 import express from 'express';
 
-import { getCollection } from '../controllers/collections.js';
+import { getPagiCollections, getPetangCollections } from '../controllers/collections.js';
 
 const router = express.Router();
 
-router.get('/', getCollection);
+router.get('/pagi', getPagiCollections);
+router.get('/petang', getPetangCollections);
 
 export default router;

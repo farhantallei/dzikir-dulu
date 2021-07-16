@@ -4,12 +4,10 @@ export default StyleSheet.create(props => ({
     container: {
         flex: 1,
         alignItems: 'center',
+        justifyContent: 'center',
     },
     card: {
-        flex: 1,
         width: '100%',
-        alignItems: 'center',
-        justifyContent: 'center',
         marginTop: 20,
         paddingHorizontal: 24,
         paddingTop: 12,
@@ -18,22 +16,15 @@ export default StyleSheet.create(props => ({
         backgroundColor: props.backgroundColor,
     },
     noTitleCard: {
-        paddingTop: 24,
-        paddingBottom: 24,
+        paddingBottom: 12,
     },
     arabicContainer: {
-        flex: 1,
-        justifyContent:'center',
+        paddingVertical: 12,
     },
     arabic: {
-        fontSize: 24,
         fontWeight: '500',
-        lineHeight: 40,
         textAlign: 'center',
         writingDirection: 'rtl',
-    },
-    singleCard: {
-        marginTop: 12,
     },
     title: {
         color: '#636366',
@@ -50,17 +41,5 @@ export default StyleSheet.create(props => ({
     footer: {
         paddingHorizontal: 24,
         minHeight: 51,
-    },
-    small: {
-        fontSize: 19,
-        lineHeight: 19*1.666666666666667,
-    },
-    medium: {
-        fontSize: 24,
-        lineHeight: 40,
-    },
-    big: {
-        fontSize: 30,
-        lineHeight: 30*1.666666666666667,
     },
 }));

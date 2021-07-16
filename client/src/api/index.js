@@ -1,5 +1,7 @@
 import axios from 'axios';
 
-const url = 'http://localhost:5000/collections';
+const pagiCollectionURL = 'http://172.20.10.2:5000/collections/pagi';
+const petangCollectionURL = 'http://172.20.10.2:5000/collections/petang';
 
-export const fetchCollection = () => axios.get(url);
+export const fetchPagiCollections = () => axios.get(pagiCollectionURL);
+export const fetchPetangCollections = () => axios.get(petangCollectionURL);

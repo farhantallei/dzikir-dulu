@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
 
-import collections from './collections.js';
+import { pagiCollections, petangCollections } from './collections.js';
 
-export default combineReducers({ collections });
+export default combineReducers({ pagi: pagiCollections, petang: petangCollections });

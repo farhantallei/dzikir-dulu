@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { SafeAreaView, Text, View } from 'react-native';
-import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import CircleButton from '../../../components/Button/CircleButton/CircleButton.js';
@@ -12,8 +11,9 @@ import useStyles from './styles.js';
 
 const Dzikr = props => {
     const styles = useStyles(props);
-    const collections = useSelector(state => state.collections);
     const navigation = props.navigation;
+    const title = props.route.name;
+    const collections = props.route.params.collection;
     const [count, setCount] = useState(0);
     const [page, setPage] = useState(0);
     const [progress, setProgress] = useState(0);
@@ -72,7 +72,7 @@ const Dzikr = props => {
             <View style={styles.section}>
                 <View style={styles.detail}>
                     <View style={styles.leftDetail}>
-                        <Text style={styles.h2Med}>Pagi</Text>
+                        <Text style={styles.h2Med}>{title}</Text>
                     </View>
                     {!collections.length ? (
                     <View style={{ ...styles.centerDetail, ...styles.centerLoadingContainer }}>
@@ -93,7 +93,7 @@ const Dzikr = props => {
                         </Text>
                     </View>)}
                 </View>
-                <Cards page={page} props={props} />
+                <Cards collections={collections} page={page} props={props} />
             </View>
             <View style={styles.footer}>
                 <View style={styles.moreActionContainer}>

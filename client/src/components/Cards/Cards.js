@@ -5,12 +5,11 @@ import { useSelector } from 'react-redux';
 import Card from './Card/Card.js';
 import useStyles from './styles.js';
 
-const Cards = ({props, page}) => {
+const Cards = ({ props, page, collections }) => {
     const styles = useStyles(props);
-    const collections = useSelector(state => state.collections);
     
     const card = collections.map(data => (
-        <Card collection={data} props={props} page={page} timesTotal={data.timesTotal} source={data.source} />
+        <Card data={data} props={props} page={page} collections={collections} timesTotal={data.timesTotal} source={data.source} />
     ))
 
     return (

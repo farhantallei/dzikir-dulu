@@ -11,7 +11,7 @@ import Cards from '../../../components/Cards/Cards.js';
 import useStyles from './styles.js';
 
 const Dzikr = props => {
-    const styles = useStyles();
+    const styles = useStyles(props);
     const collections = useSelector(state => state.collections);
     const navigation = props.navigation;
     const [count, setCount] = useState(0);
@@ -71,18 +71,20 @@ const Dzikr = props => {
             </View>
             <View style={styles.section}>
                 <View style={styles.detail}>
-                    <View style={styles.leftDetail} />
+                    <View style={styles.leftDetail}>
+                        <Text style={styles.h2Med}>Pagi</Text>
+                    </View>
                     {!collections.length ? (
-                    <View style={{ ...styles.centerDetail, paddingHorizontal: 12 }}>
-                        <View style={{ flex: 1, width: '100%', backgroundColor: props.backgroundColor, borderRadius: 15 }} />
+                    <View style={{ ...styles.centerDetail, ...styles.centerLoadingContainer }}>
+                        <View style={styles.loadingBox} />
                     </View>) : (
                     <View style={styles.centerDetail}>
                         <Text style={styles.pMed}>baca</Text>
                         <Text style={styles.h1Sem}>{`${countTime}X`}</Text>
                     </View>)}
                     {!collections.length ? (
-                    <View style={{ ...styles.rightDetail, paddingLeft: 12, alignItems: 'flex-end' }}>
-                        <View style={{ flex: 1, width: '100%', backgroundColor: props.backgroundColor, borderRadius: 15 }} />
+                    <View style={{ ...styles.rightDetail, ...styles.rightLoadingContainer }}>
+                        <View style={styles.loadingBox} />
                     </View>) : (
                     <View style={styles.rightDetail}>
                         <Text>

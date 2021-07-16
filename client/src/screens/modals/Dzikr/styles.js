@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-export default StyleSheet.create(() => ({
+export default StyleSheet.create(props => ({
     container: {
         flex: 1,
         backgroundColor: '#fff',
@@ -36,6 +36,10 @@ export default StyleSheet.create(() => ({
         fontSize: 24,
         fontWeight: '600',
     },
+    h2Med: {
+        fontSize: 20,
+        fontWeight: '500',
+    },
 
     /*==============================================================================*/
     /* Section.
@@ -49,6 +53,7 @@ export default StyleSheet.create(() => ({
     },
     leftDetail: {
         width: 70,
+        justifyContent: 'center',
     },
     centerDetail: {
         flex: 1,
@@ -100,6 +105,19 @@ export default StyleSheet.create(() => ({
     /*==============================================================================*/
     /* Header.
     /*==============================================================================*/
+    centerLoadingContainer: {
+        paddingHorizontal: 12,
+    },
+    rightLoadingContainer: {
+        paddingLeft: 12,
+        alignItems: 'flex-end',
+    },
+    loadingBox: {
+        flex: 1,
+        width: '100%',
+        backgroundColor: props.backgroundColor,
+        borderRadius: 15,
+    },
     // Close Button
     closeButton: {
         marginRight: 12,

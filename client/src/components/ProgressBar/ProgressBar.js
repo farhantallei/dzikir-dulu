@@ -3,13 +3,14 @@ import { View } from 'react-native';
 import PropTypes from 'prop-types';
 
 import useStyles from './styles.js';
+import Animated from 'react-native-reanimated';
 
 const ProgressBar = props => {
     const styles = useStyles(props);
 
     return (
         <View style={styles.bar}>
-            <View style={styles.progress} />
+            <Animated.View style={{ ...styles.progress, ...props.style}} />
         </View>
     )
 }

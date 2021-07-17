@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { SafeAreaView, Text, View } from 'react-native';
+import Animated, { EasingNode } from 'react-native-reanimated';
 import PropTypes from 'prop-types';
 
 import CircleButton from '../../../components/Button/CircleButton/CircleButton.js';
@@ -16,20 +17,40 @@ const Dzikr = props => {
     const collections = props.route.params.collection || [];
     const [count, setCount] = useState(0);
     const [page, setPage] = useState(0);
-    const [progress, setProgress] = useState(0);
-    const [opacity, setOpacity] = useState(0);
     const [countButtonColor, setCountButtonColor] = useState('#007aff');
+    
+    const progressAnimation = useRef (new Animated.Value(0));
+    const styleAnimation = useRef (new Animated.Value(0));
+
+    const handleAnimation = (animation, toValue, duration) => {
+        Animated.timing(animation.current, {
+            toValue: toValue,
+            easing: EasingNode.in(EasingNode.ease),
+            duration: duration,
+        }).start();
+    }
+
+    const progress = progressAnimation.current.interpolate({
+        inputRange: [0, 1],
+        outputRange: [0, 1],
+    });
+
+    const opacity = styleAnimation.current.interpolate({
+        inputRange: [0, 1],
+        outputRange: [0, 1],
+    });
     
     const maxPage = collections.length-1;
     const countTime = collections.map(data => data.timesTotal)[page];
     
     useEffect(() => {
-        setProgress(count/countTime);
-        count === 0 ? setOpacity(0) : setOpacity(1);
+        handleAnimation(progressAnimation, count/countTime, 250);
+        count === 0 ? handleAnimation(styleAnimation, 0, 250) : handleAnimation(styleAnimation, 1, 250);
+
         if (count === countTime) {
             setCountButtonColor('#9ed953');
         } else {
-            setCountButtonColor('#007aff');
+            setCountButtonColor('#ffcc00');
         }
     }, [collections, count])
 
@@ -67,7 +88,7 @@ const Dzikr = props => {
                 <View style={styles.closeButton}>
                     <CircleButton icon='&#x2a2f;' fontSize={24} width={24} length={2} color='#e5e5ea' backgroundColor='#aeaeb2' onPress={() => navigation.goBack()} />
                 </View>
-                <ProgressBar progress={!collections.length ? 0 :progress} color={countButtonColor} opacity={opacity} />
+                <ProgressBar style={{ flex: progress, opacity: opacity }} color={countButtonColor} />
             </View>
             <View style={styles.section}>
                 <View style={styles.detail}>

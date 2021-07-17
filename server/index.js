@@ -14,6 +14,10 @@ app.use(cors());
 
 app.use('/collections', collectionRoutes);
 
+app.get('/', (req, res) => {
+    res.send('Dzikir data API')
+});
+
 const PORT = process.env.PORT;
 
 mongoose.connect(process.env.CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })

@@ -13,7 +13,7 @@ const Dzikr = props => {
     const styles = useStyles(props);
     const navigation = props.navigation;
     const title = props.route.name;
-    const collections = props.route.params.collection;
+    const collections = props.route.params.collection || [];
     const [count, setCount] = useState(0);
     const [page, setPage] = useState(0);
     const [progress, setProgress] = useState(0);

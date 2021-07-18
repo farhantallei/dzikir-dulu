@@ -1,12 +1,25 @@
 {
   "expo": {
-    "name": "client",
-    "slug": "client",
+    "name": "Dzikir Dulu",
+    "slug": "dzikirdulu",
+    "privacy": "public",
+    "sdkVersion": "42.0.0",
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
     ],
-    "description": ""
+    "description": "",
+    "ios": {
+      "bundleIdentifier": "com.bekalislam.dzikirdulu",
+      "supportsTablet": false
+    },
+    "android": {
+      "package": "com.bekalislam.dzikirdulu",
+      "permissions": [
+        ""
+      ]
+    },
+    "orientation": "portrait"
   },
-  "name": "client"
+  "name": "Dzikir Dulu"
 }

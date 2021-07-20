@@ -11,3 +11,5 @@ const collectionSchema = mongoose.Schema({
 export const pagiCollection = mongoose.model('pagiCollection', collectionSchema, 'pagi');
 
 export const petangCollection = mongoose.model('petangCollection', collectionSchema, 'petang');
+
+export const tidurCollection = mongoose.model('tidurCollection', collectionSchema, 'tidur');

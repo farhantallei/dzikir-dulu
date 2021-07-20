@@ -1,4 +1,4 @@
-import { pagiCollection, petangCollection } from '../models/Collection.js';
+import { pagiCollection, petangCollection, tidurCollection } from '../models/Collection.js';
 
 export const getPagiCollections = async (req, res) => {
     try {
@@ -14,6 +14,17 @@ export const getPagiCollections = async (req, res) => {
 export const getPetangCollections = async (req, res) => {
     try {
         const collections = await petangCollection.find();
+
+        res.status(200).json(collections);
+
+    } catch (error) {
+        res.status(404).json({ message: error.message });
+    }
+}
+
+export const getTidurCollections = async (req, res) => {
+    try {
+        const collections = await tidurCollection.find();
 
         res.status(200).json(collections);
 

@@ -1,4 +1,4 @@
-import { FETCH_PAGI, FETCH_PETANG } from '../constant/actionTypes.js';
+import { FETCH_PAGI, FETCH_PETANG, FETCH_TIDUR } from '../constant/actionTypes.js';
 import * as api from '../api';
 
 export const getPagiCollections = () => async (dispatch) => {
@@ -16,6 +16,16 @@ export const getPetangCollections = () => async (dispatch) => {
         const { data } = await api.fetchPetangCollections();
     
         dispatch({ type: FETCH_PETANG, payload: data });
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const getTidurCollections = () => async (dispatch) => {
+    try {
+        const { data } = await api.fetchTidurCollections();
+    
+        dispatch({ type: FETCH_TIDUR, payload: data });
     } catch (error) {
         console.log(error);
     }

@@ -6,7 +6,7 @@ import thunk from 'redux-thunk';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import { getPagiCollections, getPetangCollections } from './src/actions/collections.js';
+import { getPagiCollections, getPetangCollections, getTidurCollections } from './src/actions/collections.js';
 import reducers from './src/reducers';
 import Main from './src/routes/home.js';
 import Dzikr from './src/screens/modals/Dzikr/Dzikr.js';
@@ -18,10 +18,12 @@ function AppContainer() {
     const dispatch = useDispatch();
     const pagi = useSelector(state => state.pagi);
     const petang = useSelector(state => state.petang);
+    const tidur = useSelector(state => state.tidur);
 
     useEffect(() => {
         dispatch(getPagiCollections());
         dispatch(getPetangCollections());
+        dispatch(getTidurCollections());
     }, [dispatch])
 
     return (
@@ -30,6 +32,7 @@ function AppContainer() {
                 <RootStack.Screen name='Main' component={Main} />
                 <RootStack.Screen name='Pagi' component={Dzikr} initialParams={{ collection: pagi }} options={{ cardStyle: { backgroundColor: 'white' }, gestureEnabled: false }} />
                 <RootStack.Screen name='Petang' component={Dzikr} initialParams={{ collection: petang }} options={{ cardStyle: { backgroundColor: 'white' }, gestureEnabled: false }} />
+                <RootStack.Screen name='Tidur' component={Dzikr} initialParams={{ collection: tidur }} options={{ cardStyle: { backgroundColor: 'white' }, gestureEnabled: false }} />
             </RootStack.Navigator>
             <StatusBar style='auto' hidden={true} />
         </NavigationContainer>
